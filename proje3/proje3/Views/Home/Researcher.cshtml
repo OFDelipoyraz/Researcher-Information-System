@@ -1,0 +1,82 @@
+﻿@using proje3.Models;
+
+@{
+    Layout = null;
+    var researcher = (Researcher)ViewData["researcher"];
+    var publications = (List<Publication>)ViewData["publics"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Researcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Css/researcher.css")" type="text/css" />
+</head>
+<body>
+    <div class="banner">
+        <div class="logo">
+            <a href="#" class="btn-logo">
+                <i class="fa fa-university"></i>
+            </a>
+        </div>
+        <div class="header">
+            <h3>Akademik Arama Sistemi</h3>
+            <h6>Kocaeli Üniversitesi Bilgisayar Mühendisliği Bölümü</h6>
+        </div>
+    </div>
+    <div class="container">
+        <div class="con-header">
+            <div class="profile">
+                <a href="" class="btn-profile">
+                    <i class="fa fa-user-circle"></i>
+                </a>
+            </div>
+            <div class="name">
+                <h3 id="h3"></h3>
+            </div>
+            <div class="connections">
+                <a href="" class="btn-conn">
+                    <i class="fa fa-users"></i>
+                    Birlikte Çalıştığı Kişiler
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="list-container">
+        
+    </div>
+    <script>
+        var publications = @Html.Raw(Json.Encode(publications));
+        var researcher = @Html.Raw(Json.Encode(researcher));
+
+        const h3 = document.getElementById("h3");
+        h3.innerText = researcher.Firstname + " " + researcher.Lastname;
+
+        publications.forEach(listPublications);
+
+        function listPublications(item) {
+            item.Researchers.forEach(r => console.log(r.Firstname + " " + r.Lastname));
+            const container = document.querySelector(".list-container");
+            const row = document.createElement("div");
+            const col = document.createElement("div");
+
+            const p2 = document.createElement("p");
+            p2.innerText = item.Name;
+            const p3 = document.createElement("p");
+            p3.innerText = item.Year;
+            const hr = document.createElement("hr");
+
+            col.appendChild(p2);
+            col.appendChild(p3);
+            col.appendChild(hr);
+
+            row.appendChild(col);
+
+            container.appendChild(row);
+        }
+    </script>
+</body>
+</html>

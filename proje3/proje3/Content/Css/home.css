@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.banner {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 40px;
+}
+
+.btn-logo {
+    font-size: 52px;
+    color: teal;
+}
+
+.btn-logo:hover {
+    color: steelblue;
+}
+
+.header {
+    color: steelblue;
+}
+
+.login {
+    margin-left: auto;
+}
+
+.btn-login {
+    padding: 16px;
+    font-size: 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: gray;
+}
+
+.btn-login:hover {
+    background-color: whitesmoke;
+}
+
+.search {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right, teal, steelblue);
+}
+
+.text-search {
+    width: 600px;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid gainsboro;
+    outline: none;
+    color: gray;
+}
+
+.select-search {
+    width: 200px;
+    padding: 14px;
+    font-size: 15px;
+    border: 1px solid gainsboro;
+    border-left: none;
+    outline: none;
+    color: gray;
+}
+
+.btn-search {
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    border: 1px solid gainsboro;
+    border-left: none;
+    background-color: white;
+    color: teal;
+}
+
+.btn-search:hover {
+    color: steelblue;
+}
+
+.nebu {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 4px 0;
+    font-size: 14px;
+    text-align: center;
+    background-color: gainsboro;
+    color: gray;
+}

@@ -1,0 +1,145 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Css/admin.css")" type="text/css" />
+</head>
+<body>
+    <div class="banner">
+        <div class="logo">
+            <a href="#" class="btn-logo">
+                <i class="fa fa-university"></i>
+            </a>
+        </div>
+        <div class="header">
+            <h3>Akademik Arama Sistemi</h3>
+            <h6>Kocaeli Üniversitesi Bilgisayar Mühendisliği Bölümü</h6>
+        </div>
+        <div class="logout">
+            <a href="/Home/Index" class="btn-logout">
+                Çıkış
+                <i class="fa fa-sign-out"></i>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="researcher">
+            <div class="container-control">
+                <div class="con-header">
+                    <h3>Araştırmacı Ekle</h3>
+                </div>
+                <div class="form-container">
+                    @using (Html.BeginForm("AddResearcherAsync", "Admin", FormMethod.Post))
+                    {
+                    <div class="form-control">
+                        <label>ID:</label>
+                        <input type="text" name="id" id="id">
+                    </div>
+                    <div class="form-control">
+                        <label>Ad:</label>
+                        <input type="text" name="firstname" id="firstname">
+                    </div>
+                    <div class="form-control">
+                        <label>Soyad:</label>
+                        <input type="text" name="lastname" id="lastname">
+                    </div>
+                    <div class="form-control">
+                        <input type="submit" value="Ekle">
+                    </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="publication">
+            <div class="container-control">
+                <div class="con-header">
+                    <h3>Yayın Ekle</h3>
+                </div>
+                <div class="form-container">
+                    @using (Html.BeginForm("AddPublicationAsync", "Admin", FormMethod.Post))
+                    {
+                    <div class="form-control">
+                        <label>Yayın ID:</label>
+                        <input type="text" name="id" id="id">
+                    </div>
+                    <div class="form-control">
+                        <label>Yayın Adı:</label>
+                        <input type="text" name="name" id="name">
+                    </div>
+                    <div class="form-control">
+                        <label>Yıl:</label>
+                        <input type="text" name="year" id="year">
+                    </div>
+                    <div class="form-control">
+                        <input type="submit" value="Ekle">
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="genre">
+            <div class="container-control">
+                <div class="con-header">
+                    <h3>Tür Ekle</h3>
+                </div>
+                <div class="form-container">
+                    @using (Html.BeginForm("AddGenreAsync", "Admin", FormMethod.Post))
+                    {
+                        <div class="form-control">
+                            <label>Tür ID:</label>
+                            <input type="text" name="id" id="id">
+                        </div>
+                        <div class="form-control">
+                            <label>Tür Adı:</label>
+                            <input type="text" name="name" id="name">
+                        </div>
+                        <div class="form-control">
+                            <label>Yayın Yeri</label>
+                            <input type="text" name="place" id="place">
+                        </div>
+                        <div class="form-control">
+                            <input type="submit" value="Ekle">
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="bisey">
+            <div class="container-control">
+                <div class="con-header">
+                    <h3>Araştırmacıya Yayın Ekle</h3>
+                </div>
+                <div class="form-container">
+                    @using (Html.BeginForm("CreateConnectionAsync", "Admin", FormMethod.Post))
+                    {
+                        <div class="form-control">
+                            <label>Araştırmacı ID:</label>
+                            <input type="text" name="researcherId" id="researcherId">
+                        </div>
+                        <div class="form-control">
+                            <label>Yayın ID:</label>
+                            <input type="text" name="publicationId" id="publicationId">
+                        </div>
+                        <div class="form-control">
+                            <input type="submit" value="Ekle">
+                        </div>
+                    }
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+﻿@using proje3.Models;
+
+@{
+    Layout = null;
+    var publications = (List<Publication>)ViewData["publications"];
+    var researchers = (List<Researcher>)ViewData["researchers"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SearchAsync</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Css/search.css")" type="text/css" />
+</head>
+<body>
+    <div class="banner">
+        <div class="logo">
+            <a href="#" class="btn-logo">
+                <i class="fa fa-university"></i>
+            </a>
+        </div>
+        <div class="header">
+            <h3>Akademik Arama Sistemi</h3>
+            <h6>Kocaeli Üniversitesi Bilgisayar Mühendisliği Bölümü</h6>
+        </div>
+    </div>
+    <div class="container"></div>
+    <script>
+        var publications = @Html.Raw(Json.Encode(publications));
+        var researchers = @Html.Raw(Json.Encode(researchers));
+
+        researchers.forEach(listResearchers);
+        publications.forEach(listPublications);
+
+        function listResearchers(item) {
+            const container = document.querySelector(".container");
+            const row = document.createElement("div");
+            const col = document.createElement("div");
+
+            const a = document.createElement("a");
+            a.innerHTML = item.Firstname + " " + item.Lastname;
+            a.href = "/Home/Researcher?" + "id=" + item.Id;
+
+            const hr = document.createElement("hr");
+
+            col.appendChild(a);
+            col.appendChild(hr);
+
+            row.appendChild(col);
+
+            container.appendChild(row);
+        }
+
+        function listResearchers2(item) {
+            const container = document.querySelector(".container");
+            const row = document.createElement("div");
+            const col1 = document.createElement("div");
+
+            const a = document.createElement("a");
+            a.innerHTML = item.Firstname + " " + item.Lastname;
+            a.href = "/Home/Researcher?" + "id=" + item.Id;
+
+            col1.appendChild(a);
+
+            row.appendChild(col1);
+
+            container.appendChild(row);
+        }
+
+        function listPublications(item) {
+            item.Researchers.forEach(listResearchers2);
+            const container = document.querySelector(".container");
+            const row = document.createElement("div");
+            const col = document.createElement("div");
+
+            const p2 = document.createElement("p");
+            p2.innerText= item.Name;
+            const p3 = document.createElement("p");
+            p3.innerText = item.Year;
+            const hr = document.createElement("hr");
+
+            col.appendChild(p2);
+            col.appendChild(p3);
+            col.appendChild(hr);
+
+            row.appendChild(col);
+
+            container.appendChild(row);
+        }
+    </script>
+</body>
+</html>

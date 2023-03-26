@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giriş</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Css/login.css")" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Giriş Yap</h1>
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+            {
+                <div class="form-control">
+                    <label for="email">email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="form-control">
+                    <label for="psw">parola</label>
+                    <input type="password" name="psw" id="psw">
+                </div>
+                <div>
+                    @ViewBag.LoginError
+                </div>
+                <div class="form-control">
+                    <input type="submit" value="giriş">
+                </div>
+            }
+            </div>
+    </div>
+</body>
+</html>

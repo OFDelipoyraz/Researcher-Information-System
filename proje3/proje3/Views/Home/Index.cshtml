@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Anasayfa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Css/home.css")" type="text/css" />
+</head>
+<body>
+    <div class="banner">
+        <div class="logo">
+            <a href="/Home/Index" class="btn-logo">
+                <i class="fa fa-university"></i>
+            </a>
+        </div>
+        <div class="header">
+            <h3>Akademik Arama Sistemi</h3>
+            <h6>Kocaeli Üniversitesi Bilgisayar Mühendisliği Bölümü</h6>
+        </div>
+        <div class="login">
+            <a href="/Login/Login" class="btn-login">
+                <i class="fa fa-sign-in"></i>
+                Yönetici Girişi
+            </a>
+        </div>
+    </div>
+    <div class="search">
+        @using (Html.BeginForm("SearchAsync", "Home", FormMethod.Post))
+        {
+            <input type="text" class="text-search" name="text" id="text" placeholder="Araştırmacı, Yayın, Yıl Ara">
+        <select class="select-search">
+            <option value="all">Tümü</option>
+            <option value="researchers">Araştırmacılar</option>
+            <option value="publications">Yayınlar</option>
+            <option value="years">Yıllar</option>
+        </select>
+        <a href="#" class="btn-search">
+            <i class="fa fa-search"></i>
+        </a>
+        }
+    </div>
+    <div class="nebu">
+        190202081@kocaeli.edu.tr | 190202109@kocaeli.edu.tr @ViewBag.Info
+    </div>
+</body>
+</html>

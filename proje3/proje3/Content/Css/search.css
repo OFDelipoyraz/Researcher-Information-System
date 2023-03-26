@@ -1,0 +1,26 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.banner {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-image: linear-gradient(to right, teal, steelblue);
+}
+
+.logo {
+    margin-right: 40px;
+}
+
+.btn-logo {
+    font-size: 48px;
+    color: white;
+}
+
+.container {
+    padding: 20px;
+}
